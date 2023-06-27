@@ -23,7 +23,6 @@ const Login = () => {
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
 
-              {/* Center width-50 login button */}
               <Button variant="primary" type="submit" className="w-50 ml-5">
                 Login
               </Button>
