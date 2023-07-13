@@ -19,7 +19,6 @@ const Message = (props) => {
               float: props.place,
               clear: "both",
             }}>
-              
             <p
               className="message-text"
               style={{

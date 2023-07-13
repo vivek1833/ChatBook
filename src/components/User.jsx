@@ -1,23 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Image, ListGroup } from "react-bootstrap";
 
-const User = () => {
+const User = (props) => {
+  const { user } = props;
+
   return (
     <>
       <ListGroup variant="flush">
         <ListGroup.Item action variant="light" className="text-dark">
           <Image
-            src="https://picsum.photos/200"
+            src={user.photoURL}
             roundedCircle
             width={40}
             height={40}
             className="me-2"
           />
-          User 69 <br />
-          <span className="text-muted">last message</span>
-          <span className="position-absolute badge rounded-pill bg-danger">
-            99+
-          </span>
+          {user.username}
         </ListGroup.Item>
       </ListGroup>
     </>
