@@ -56,8 +56,8 @@ const Chat = (props) => {
     // either from user1 or from user2
     const q = query(
       messagesRef,
-      where("user1", "in", [id , auth.currentUser.uid]),
-      where("user2", "in", [id , auth.currentUser.uid]),
+      where("user1", "in", [id, auth.currentUser.uid]),
+      where("user2", "in", [id, auth.currentUser.uid]),
       orderBy("chat.createdAt", "asc")
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -66,6 +66,9 @@ const Chat = (props) => {
         messages.push(doc.data().chat);
       });
       setMessage(messages);
+      // scroll to bottom
+      const chat = document.getElementById("chat");
+      chat.scrollTop = chat.scrollHeight;
     });
     return () => {
       unsubscribe();
@@ -74,12 +77,7 @@ const Chat = (props) => {
 
   return (
     <>
-      <Container
-        style={{
-          height: "calc(100vh - 120px)",
-          background: "lightblue",
-          overflowY: "scroll",
-        }}>
+      <Container>
         <Container className="d-flex justify-content-center align-items-center">
           <Link to={`/profile/${user.username}`}>
             <Image
@@ -95,7 +93,14 @@ const Chat = (props) => {
 
         <hr />
 
-        <Container className="mb-1">
+        <Container
+          id="chat"
+          style={{
+            height: "calc(100vh - 200px)",
+            overflowY: "scroll",
+            scrollBehavior: "smooth",
+            background: "#f5f5f5",
+          }}>
           {message.map((msg) => {
             return (
               <Message
@@ -114,6 +119,7 @@ const Chat = (props) => {
             <Form.Control
               type="text"
               placeholder="Enter your message"
+              className="w-100 border border-primary rounded-pill px-3 py-2"
               autoComplete="Off"
               value={text}
               name="text"
@@ -129,7 +135,7 @@ const Chat = (props) => {
             name="send"
             id="send"
             onClick={sendMessage}
-            className="ml-2">
+            className="ml-1">
             <i className="bi bi-caret-right"></i>
           </Button>
         </Form>

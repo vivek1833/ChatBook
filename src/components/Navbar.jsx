@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { signOut } from "firebase/auth";
@@ -19,11 +20,18 @@ const NavbarComponent = () => {
   return (
     <>
       <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="/"> ChatBook </Navbar.Brand>
-          <Nav className="me-auto">
-            <Button variant="danger" onClick={logout}>
-              Logout
+        <Container fluid>
+          <Link to="/">
+            <Navbar.Brand className="ml-4">ChatBook</Navbar.Brand>
+          </Link>
+          <Nav>
+            <Link to="/profile">
+              <Button variant="success">
+                <i className="bi bi-person-circle"> </i> Profile
+              </Button>
+            </Link>
+            <Button variant="danger ml-1 mr-2" onClick={logout}>
+              <i className="bi bi-box-arrow-right"> </i> Logout
             </Button>
           </Nav>
         </Container>

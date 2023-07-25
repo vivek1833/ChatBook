@@ -14,7 +14,7 @@ const User = (props) => {
             roundedCircle
             width={40}
             height={40}
-            className="me-2"
+            className="mx-2"
           />
           {user.username}
         </ListGroup.Item>
