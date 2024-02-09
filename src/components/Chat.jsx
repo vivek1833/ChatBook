@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Button, Form, Image } from "react-bootstrap";
-import { auth, messagesRef, usersRef } from "../config/firebase";
+import { auth, messagesRef, usersRef } from "../config/firebase.js";
 import {
   addDoc,
   query,

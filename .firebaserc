@@ -1,5 +1,9 @@
 {
   "projects": {
     "default": "chatbook-f57ae"
+  },
+  "rules": {
+    ".read": true,
+    ".write": true
   }
 }

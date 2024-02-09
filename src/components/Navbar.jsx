@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth } from "../config/firebase.js";
 
 const NavbarComponent = () => {
   const navigate = useNavigate();

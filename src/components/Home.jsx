@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
-import { auth, usersRef } from "../config/firebase";
+import { auth, usersRef } from "../config/firebase.js";
 import { onSnapshot } from "firebase/firestore";
 
 import NavbarComponent from "./Navbar";
